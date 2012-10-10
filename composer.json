@@ -1,7 +1,7 @@
 {
     "name": "ee/extramailer",
     "type": "library",
-    "description": "Easy email wrapper for Symfony 2.x",
+    "description": "Easy to use email wrapper for Symfony 2.x",
     "keywords": ["mailer","email"],
     "homepage": "http://laboratorium.ee",
     "license": "MIT",
