@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    </head>
+    <body style="font-family: verdana; background-color: #F0F0F0;">
+
+        <div style="background-color: white; border: 1px solid #979797; margin: 5px 5px 5px 5px;">
+            
+            <h2 style="color: white; background-color: #1E70CD; margin: 0px 0px 0px 0px; padding: 10px 10px 10px 10px; font-size: 16px; font-weight: bold; padding: 14px 14px 14px 14px;">{{ subject }}</h2>
+            
+            <div style="padding-left: 10px !important; padding-right: 10px !important; color: black !important; margin-bottom:20px">
+                {{ body_html|raw }}
+            </div>
+            {% include 'EEExtraMailerBundle::noreplyFooter.html.twig' %}
+        </div>
+
+    </body>
+</html>
+
