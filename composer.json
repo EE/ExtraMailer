@@ -1,0 +1,30 @@
+{
+    "name": "ee/extramailer",
+    "type": "library",
+    "description": "Easy email wrapper for Symfony 2.x",
+    "keywords": ["mailer","email"],
+    "homepage": "http://laboratorium.ee",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konrad Podgórski",
+            "email": "konrad.podgorski@gmail.com",
+            "homepage": "http://konradpodgorski.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": ">=2.1,<2.3-dev"
+    },
+    "require-dev": {
+        "twig/twig": "*",
+        "swiftmailer/swiftmailer": "*",
+        "symfony/yaml": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": { "EE\\ExtraMailerBundle": "" }
+    },
+    "target-dir": "EE/ExtraMailerBundle"
+}
