@@ -1,5 +1,5 @@
 {
-    "name": "ee/extramailer",
+    "name": "ee/extramailer-bundle",
     "type": "library",
     "description": "Easy to use email wrapper for Symfony 2.x",
     "keywords": ["mailer","email"],
