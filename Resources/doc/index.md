@@ -1,5 +1,41 @@
-### Dokumentacja EE ExtraMailer'a
+### Installation
 
+Download EEExtraMailerBundle using composer
+
+Add EEExtraMailerBundle in your composer.json:
+
+```
+{
+    "require": {
+        "ee/extramailer-bundle": "dev-master"
+    }
+}
+```
+
+Now tell composer to download the bundle by running the command:
+
+```
+$ php composer.phar update ee/extramailer-bundle
+```
+
+Composer will install the bundle to your project's vendor/ee directory.
+
+``` php
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new EE\ExtraMailerBundle\EEExtraMailerBundle(),
+    );
+}
+
+```
+
+Configuration
+-------------
 
 ``` yaml
 # app/config/config.yml

@@ -1,5 +1,7 @@
-### EEExtraMailer
+EEExtraMailer
+-------------
+-------------
 
-Is simple wrapper for standard swiftmailer used in Symfony 2.x
+Is easy to use wrapper for standard swiftmailer used in Symfony 2.x
 
-Read documentation for master in `Resources/doc/index.md`
+[Read the Documentation for master](https://github.com/EE/ExtraMailer/blob/master/Resources/doc/index.md)
