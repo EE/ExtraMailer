@@ -2,4 +2,4 @@ Best regards,
 Team
 
 {{ 'footer.no_reply' | trans({}, 'EEExtraMailer') }}
-{{ 'footer.message_sent_at' | trans({date: "now"|date("r")}, 'EEExtraMailer') }}
+{{ 'footer.message_sent_at' | trans({'%date%': "now"|date("r")}, 'EEExtraMailer') }}

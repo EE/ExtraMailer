@@ -3,6 +3,6 @@
         Team<br />
     {{ 'footer.no_reply' | trans({}, 'EEExtraMailer') }}<br />
     </p>
-    <p style="font-size: 50%">{{ 'footer.message_sent_at' | trans({date: "now"|date("r")}, 'EEExtraMailer') }}</p>
+    <p style="font-size: 50%">{{ 'footer.message_sent_at' | trans({'%date%': "now"|date("r")}, 'EEExtraMailer') }}</p>
     
 </div>

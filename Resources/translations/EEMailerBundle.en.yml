@@ -1,4 +1,3 @@
-
 footer:
     no_reply: 'This is automated message, please do not reply.'
-    message_sent_at: 'Message was sent at %date%
+    message_sent_at: 'Message was sent at %date%'
