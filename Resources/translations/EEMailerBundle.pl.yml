@@ -1,0 +1,3 @@
+footer:
+    no_reply: 'Wiadomość wysłana automatycznie, prosimy na nią nie odpowiadać.'
+    message_sent_at: 'Wiadomość wysłana %date%'
