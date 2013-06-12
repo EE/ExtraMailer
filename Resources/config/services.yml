@@ -1,5 +1,5 @@
 services:
     extramailer:
         class: EE\ExtraMailerBundle\Service\ExtraMailer
-        arguments: [ @service_container, "@mailer", "@twig" ]
+        arguments: [ @service_container, @mailer, @twig ]
         public: true

@@ -61,7 +61,7 @@ Example usage within controller with context
 
 ``` php
 
-    $extraMailer->sendMessage(array('recipient@example.com' => 'Recipient Name'), 'EEExtraMailerBundle:Demo:sample.email.twig', array('foo' => 'bar');
+    $extraMailer->sendMessage(array('recipient@example.com' => 'Recipient Name'), 'EEExtraMailerBundle:Demo:sample.email.twig', array('foo' => 'bar'));
         
 ```
 
