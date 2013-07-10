@@ -14,14 +14,13 @@ class ExtraMailer
      */
     protected $twig;
     /**
-     * @var
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
     protected $container;
 
     /**
-     * @param                   $from_address
-     * @param                   $sender_name
-     * @param \Swift_Mailer     $mailer
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+     * @param \Swift_Mailer $mailer
      * @param \Twig_Environment $twig
      */
     public function __construct(\Symfony\Component\DependencyInjection\ContainerInterface $container, \Swift_Mailer $mailer, \Twig_Environment $twig)
@@ -32,12 +31,13 @@ class ExtraMailer
     }
 
     /**
-     *
-     * @param type $toEmail
-     * @param type $templateName
-     * @param type $context
+     * @param array $toEmail
+     * @param string $templateName
+     * @param array $context
+     * @param array $options
+     * @return bool
      */
-    public function sendMessage($toEmail, $templateName, $context = array(), $options = array())
+    public function sendMessage(Array $toEmail, $templateName, $context = array(), $options = array())
     {
         $template = $this->twig->loadTemplate($templateName);
 
@@ -50,7 +50,10 @@ class ExtraMailer
 
         $message = \Swift_Message::newInstance()
             ->setSubject($subject)
-            ->setFrom($this->container->getParameter('ee_extra_mailer.from_email.address'), $this->container->getParameter('ee_extra_mailer.from_email.sender_name'))
+            ->setFrom(
+                $this->container->getParameter('ee_extra_mailer.from_email.address'),
+                $this->container->getParameter('ee_extra_mailer.from_email.sender_name')
+            )
             ->setTo($toEmail);
 
         if (!empty( $bodyHtml )) {
@@ -63,8 +66,7 @@ class ExtraMailer
                     )
                 ),
                 'text/html'
-            )
-                ->addPart(
+            )->addPart(
                 $layoutTxt->render(
                     array(
                         'subject'   => $subject,
@@ -84,18 +86,14 @@ class ExtraMailer
             );
         }
 
-        if (isset( $options['attachments'] )) {
+        if (isset($options['attachments'] )) {
             foreach ($options['attachments'] as $fileName => $attachmentWebPath) {
                 $message->attach(\Swift_Attachment::fromPath($attachmentWebPath)->setFilename($fileName));
             }
-
         }
 
         $this->mailer->send($message);
 
         return true;
-
     }
 }
-
-?>
