@@ -21,8 +21,8 @@ class EEExtraMailerExtension extends Extension
         $loader->load('services.yml');
         
         $container->setParameter('ee_extra_mailer.from_email.address', $config['from_email']['address']);
-        
         $container->setParameter('ee_extra_mailer.from_email.sender_name', $config['from_email']['sender_name']);
-        
+        $container->setParameter('ee_extra_mailer.theme', $config['theme']);
+
     }
 }

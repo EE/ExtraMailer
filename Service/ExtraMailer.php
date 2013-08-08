@@ -151,8 +151,13 @@ class ExtraMailer
     public function prepareContent(\Swift_Message $message, $template, array $context)
     {
 
-        $layoutTxt  = $this->twig->loadTemplate('EEExtraMailerBundle::layout.txt.twig');
-        $layoutHtml = $this->twig->loadTemplate('EEExtraMailerBundle::layout.html.twig');
+        $tamplateNameBase = "EEExtraMailerBundle"
+            . "::" . "Themes"
+            . "/" . $this->container->getParameter('ee_extra_mailer.theme')
+            . "/" . "base";
+
+        $layoutHtml = $this->twig->loadTemplate($tamplateNameBase . '.html.twig');
+        $layoutTxt  = $this->twig->loadTemplate($tamplateNameBase . '.txt.twig');
 
         $subject = $this->getRenderedSubject($template, $context);
         $bodyHtml = $this->getRenderedBodyHtml($template, $context);
