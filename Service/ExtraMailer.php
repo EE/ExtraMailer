@@ -80,7 +80,7 @@ class ExtraMailer
             }
 
             $orderedRecipients = array();
-            foreach($recipients as $email => $name) {
+            foreach ($recipients as $email => $name) {
                 $orderedRecipients[] = array($email => $name);
             }
 
@@ -107,18 +107,23 @@ class ExtraMailer
 
             $subject = $this->getRenderedSubject($template, $context);
 
-            $message = $this->prepareMessage()
-                ->setSubject($subject)
-                ->setTo($recipients);
 
-            $message = $this->prepareContent($message, $template, $context);
+            foreach ($recipients as $email => $name) {
+                $message = $this->prepareMessage()
+                    ->setSubject($subject)
+                    ->setTo($email, $name);
+
+                $message = $this->prepareContent($message, $template, $context);
 
 
-            if (array_key_exists('attachments', $options)) {
-                $message = $this->attach($message, $options['attachments']);
+                if (array_key_exists('attachments', $options)) {
+                    $message = $this->attach($message, $options['attachments']);
+                }
+
+                $queuedMessages[] = $message;
             }
 
-            $queuedMessages[] = $message;
+
         }
 
         return $queuedMessages;
@@ -164,14 +169,14 @@ class ExtraMailer
                 ),
                 'text/html'
             )->addPart(
-                    $layoutTxt->render(
-                        array(
-                            'subject'   => $subject,
-                            'body_text' => $bodyText
-                        )
-                    ),
-                    'text/plain'
-                );
+                $layoutTxt->render(
+                    array(
+                        'subject'   => $subject,
+                        'body_text' => $bodyText
+                    )
+                ),
+                'text/plain'
+            );
         } else {
             $message->setBody(
                 $layoutTxt->render(
