@@ -48,7 +48,7 @@ class ExtraMailer
         $queuedMessages = $this->composeMessages($recipients, $templateName, $context, $options);
 
         $count = 0;
-        foreach($queuedMessages as $message) {
+        foreach ($queuedMessages as $message) {
             $count += $this->mailer->send($message);
         }
         return $count;
