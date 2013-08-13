@@ -1,0 +1,28 @@
+{% extends 'EEExtraMailerBundle::base.html.twig' %}
+
+{% block body_style %}{% spaceless %}
+    font-family: verdana;
+    background-color: #F0F0F0;
+{% endspaceless %}{% endblock %}
+
+{% block wrapper_style %}{% spaceless %}
+    background-color: white;
+    border: 1px solid #979797; margin: 5px 5px 5px 5px;
+{% endspaceless %}{% endblock %}
+
+{% block header_style %}{% spaceless %}
+    color: #333;
+    background-color: #FFFAF0;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 10px 10px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 14px 14px 14px;
+{% endspaceless %}{% endblock %}
+
+{% block content_style %}{% spaceless %}
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: black !important;
+    margin-bottom:20px
+{% endspaceless %}{% endblock %}

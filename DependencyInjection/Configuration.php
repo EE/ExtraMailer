@@ -24,7 +24,13 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('sender_name')->defaultValue('webmaster')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
-                ;
+                ->scalarNode('theme')
+                    ->defaultValue('FloralWhite')
+                    ->info('one of color themes')
+                    ->example('FloralWhite')
+                ->end()
+             ->end()
+             ;
         
         return $treeBuilder;
     }

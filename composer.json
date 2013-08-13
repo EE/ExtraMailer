@@ -11,6 +11,11 @@
             "email": "konrad.podgorski@gmail.com",
             "homepage": "http://konradpodgorski.com",
             "role": "Developer"
+        },
+        {
+            "name": "Jarek Rencz",
+            "email": "jaroslaw@rencz.pl",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
@@ -22,7 +27,8 @@
     },
     "require-dev": {
         "symfony/yaml": ">=2.0,<2.4-dev",
-        "symfony/dependency-injection": ">=2.0,<2.4-dev"
+        "symfony/dependency-injection": ">=2.0,<2.4-dev",
+        "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
         "psr-0": { "EE\\ExtraMailerBundle": "" }
