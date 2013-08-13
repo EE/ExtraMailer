@@ -43,7 +43,6 @@ class ExtraMailer
      *
      * @return int Number of sent emails
      */
-
     public function sendMessage(Array $recipients, $templateName, $context = array(), $options = array())
     {
         $queuedMessages = $this->composeMessages($recipients, $templateName, $context, $options);
@@ -132,7 +131,7 @@ class ExtraMailer
     /**
      * @return \Swift_Message
      */
-    public function prepareMessage()
+    private function prepareMessage()
     {
         return \Swift_Message::newInstance()
             ->setFrom(
@@ -148,7 +147,7 @@ class ExtraMailer
      *
      * @return \Swift_Message
      */
-    public function prepareContent(\Swift_Message $message, $template, array $context)
+    private function prepareContent(\Swift_Message $message, $template, array $context)
     {
 
         $tamplateNameBase = "EEExtraMailerBundle"
@@ -202,7 +201,7 @@ class ExtraMailer
      *
      * @return \Swift_Message
      */
-    public function attach(\Swift_Message $message, array $attachments)
+    private function attach(\Swift_Message $message, array $attachments)
     {
         foreach ($attachments as $fileName => $attachmentWebPath) {
             $message->attach(\Swift_Attachment::fromPath($attachmentWebPath)->setFilename($fileName));
@@ -217,7 +216,7 @@ class ExtraMailer
      *
      * @return mixed
      */
-    public function getRenderedSubject($template, array $context)
+    private function getRenderedSubject($template, array $context)
     {
         return $template->renderBlock('subject', $context);
     }
@@ -228,7 +227,7 @@ class ExtraMailer
      *
      * @return mixed
      */
-    public function getRenderedBodyText($template, array $context)
+    private function getRenderedBodyText($template, array $context)
     {
         return $template->renderBlock('body_text', $context);
     }
@@ -239,7 +238,7 @@ class ExtraMailer
      *
      * @return mixed
      */
-    public function getRenderedBodyHtml($template, array $context)
+    private function getRenderedBodyHtml($template, array $context)
     {
         return $template->renderBlock('body_html', $context);
     }
