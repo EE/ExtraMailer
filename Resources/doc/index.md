@@ -77,8 +77,20 @@ Example view used by EEExtraMailer, all 3 blocks are mandatory.
 
 
 ```
+## Themes
 
-Attachments 
+ExtraMailer supports themes, the list of available themes is [here](../views/Themes)
+
+To change it
+
+``` yaml
+ee_extra_mailer:
+    theme: FloralWhite # default one
+```
+
+Feel free to send a Pull Request if you want to add your theme to the list.
+
+## Attachments
 
 
 ``` php
